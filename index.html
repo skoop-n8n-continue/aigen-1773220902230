@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>NEA Flash Deal — Northeast Alternatives New Bedford</title>
+
+  <!-- GSAP Core + Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/DrawSVGPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MotionPathPlugin.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=n8r4q2">
+</head>
+<body>
+  <div id="scene">
+
+    <!-- ── LAYER 0: Background image ── -->
+    <div id="bg"></div>
+
+    <!-- ── LAYER 1: Diamond grid overlay ── -->
+    <div id="diamond-pattern">
+      <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dtile" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+            <path d="M40,2 L78,40 L40,78 L2,40 Z" fill="none" stroke="rgba(0,181,173,0.07)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="1920" height="1080" fill="url(#dtile)"/>
+      </svg>
+    </div>
+
+    <!-- ── LAYER 2: Big background watermark text ── -->
+    <div id="bg-watermark">DEALS</div>
+
+    <!-- ── LAYER 2: NEA star watermark (top-right, slowly rotating) ── -->
+    <div id="bg-star-wrap">
+      <svg id="bg-star" viewBox="-105 -105 210 210" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,-88 L11.7,-28.4 L62.2,-62.2 L28.4,-11.7 L88,0 L28.4,11.7 L62.2,62.2 L11.7,28.4 L0,88 L-11.7,28.4 L-62.2,62.2 L-28.4,11.7 L-88,0 L-28.4,-11.7 L-62.2,-62.2 L-11.7,-28.4 Z"
+              fill="rgba(0,181,173,0.07)"/>
+        <circle r="24" fill="none" stroke="rgba(0,181,173,0.07)" stroke-width="9"/>
+        <circle r="10" fill="rgba(0,181,173,0.07)"/>
+      </svg>
+    </div>
+
+    <!-- ── LAYER 3: Particle canvas ── -->
+    <canvas id="particles" width="1920" height="1080"></canvas>
+
+    <!-- ── LAYER 4: Accent lines (above/below main area) ── -->
+    <div id="accent-line-top"></div>
+    <div id="accent-line-bottom"></div>
+
+    <!-- ══════════════════════════════════════════════
+         TOP BAR
+    ══════════════════════════════════════════════ -->
+    <div id="top-bar">
+      <!-- NEA Logo -->
+      <div id="nea-logo-wrap">
+        <svg id="nea-logo-star" viewBox="-105 -105 210 210" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,-88 L11.7,-28.4 L62.2,-62.2 L28.4,-11.7 L88,0 L28.4,11.7 L62.2,62.2 L11.7,28.4 L0,88 L-11.7,28.4 L-62.2,62.2 L-28.4,11.7 L-88,0 L-28.4,-11.7 L-62.2,-62.2 L-11.7,-28.4 Z"
+                fill="#00B5AD"/>
+          <circle r="24" fill="none" stroke="#00B5AD" stroke-width="9"/>
+          <circle r="10" fill="#00B5AD"/>
+        </svg>
+        <div id="nea-text-wrap">
+          <div id="nea-northeast">northeast</div>
+          <div id="nea-alternatives">ALTERNATIVES</div>
+        </div>
+      </div>
+
+      <div class="top-divider"></div>
+
+      <div id="top-center-text">
+        <div id="top-label">WEEKLY DEALS</div>
+      </div>
+
+      <div class="top-divider"></div>
+
+      <div id="top-location">
+        <div id="top-loc-name">NEW BEDFORD, MA</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         MAIN CONTENT AREA
+    ══════════════════════════════════════════════ -->
+    <div id="main-area">
+
+      <!-- LEFT: Product image panel -->
+      <div id="product-image-panel">
+        <!-- Atmospheric glow rings -->
+        <div id="glow-ring-outer"></div>
+        <div id="glow-ring-inner"></div>
+        <div id="glow-ring-core"></div>
+
+        <!-- Product image -->
+        <div id="product-image-wrap">
+          <img id="product-img" src="" alt="Product">
+        </div>
+
+        <!-- Floating badges beneath image -->
+        <div id="image-badges">
+          <div id="category-badge">Gummies</div>
+          <div id="strain-badge">Indica</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Product info panel -->
+      <div id="product-info-panel">
+
+        <!-- Deal header block -->
+        <div id="deal-header">
+          <div id="deal-eyebrow">
+            <div id="deal-eyebrow-line-left"></div>
+            <span id="deal-eyebrow-text">THIS WEEK ONLY</span>
+            <div id="deal-eyebrow-line-right"></div>
+          </div>
+          <div id="deal-title">DEAL OF<br>THE WEEK</div>
+        </div>
+
+        <!-- Product details -->
+        <div id="product-details-wrap">
+          <div id="product-brand"></div>
+          <div id="product-full-name"></div>
+        </div>
+
+        <!-- ──── PRICE SECTION ──── -->
+        <div id="price-section">
+
+          <!-- WAS price -->
+          <div id="original-price-row">
+            <span id="was-label">WAS</span>
+            <div id="original-price-container">
+              <span id="original-price-text"></span>
+              <div id="strikethrough-line"></div>
+            </div>
+          </div>
+
+          <!-- NOW price (the big explosion) -->
+          <div id="new-price-row">
+            <div id="now-label-stack">
+              <span id="now-label">NOW</span>
+              <span id="only-label">ONLY</span>
+            </div>
+            <div id="new-price-big"></div>
+          </div>
+
+          <!-- Savings badge + amount -->
+          <div id="savings-row">
+            <div id="savings-badge">
+              <div id="savings-badge-inner">
+                <div id="savings-pct">50%</div>
+                <div id="savings-off-text">OFF</div>
+              </div>
+            </div>
+            <div id="savings-info">
+              <div id="savings-amount-text"></div>
+              <div id="savings-sublabel">LIMITED TIME OFFER</div>
+            </div>
+          </div>
+
+        </div><!-- /price-section -->
+      </div><!-- /product-info-panel -->
+    </div><!-- /main-area -->
+
+    <!-- ══════════════════════════════════════════════
+         BOTTOM BAR
+    ══════════════════════════════════════════════ -->
+    <div id="bottom-bar">
+      <span class="bot-item">596 TARKILN-HILL RD</span>
+      <span class="dot">◆</span>
+      <span class="bot-item">NEW BEDFORD, MA 02745</span>
+      <span class="dot">◆</span>
+      <span class="bot-item">NEALTERNATIVES.COM</span>
+      <span class="dot">◆</span>
+      <span class="bot-item">OPEN 8AM – 10PM DAILY</span>
+      <span class="dot">◆</span>
+      <span class="bot-item bot-legal">FOR ADULTS 21+ ONLY · CONSUME RESPONSIBLY</span>
+    </div>
+
+    <!-- ── FOREGROUND corner decoration SVGs ── -->
+    <div id="corner-tl" class="corner-deco">
+      <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dctl" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
+            <path d="M22,2 L42,22 L22,42 L2,22 Z" fill="none" stroke="rgba(0,181,173,0.18)" stroke-width="1"/>
+          </pattern>
+          <clipPath id="clip-tl">
+            <polygon points="0,0 220,0 0,220"/>
+          </clipPath>
+        </defs>
+        <polygon points="0,0 220,0 0,220" fill="url(#dctl)" clip-path="url(#clip-tl)"/>
+        <line x1="0" y1="0" x2="180" y2="0" stroke="rgba(0,181,173,0.35)" stroke-width="1.5"/>
+        <line x1="0" y1="0" x2="0" y2="180" stroke="rgba(0,181,173,0.35)" stroke-width="1.5"/>
+        <line x1="0" y1="0" x2="130" y2="0" stroke="rgba(0,181,173,0.5)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="0" y2="130" stroke="rgba(0,181,173,0.5)" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <div id="corner-br" class="corner-deco">
+      <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dcbr" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
+            <path d="M22,2 L42,22 L22,42 L2,22 Z" fill="none" stroke="rgba(0,181,173,0.18)" stroke-width="1"/>
+          </pattern>
+          <clipPath id="clip-br">
+            <polygon points="220,220 0,220 220,0"/>
+          </clipPath>
+        </defs>
+        <polygon points="220,220 0,220 220,0" fill="url(#dcbr)" clip-path="url(#clip-br)"/>
+        <line x1="220" y1="220" x2="40" y2="220" stroke="rgba(0,181,173,0.35)" stroke-width="1.5"/>
+        <line x1="220" y1="220" x2="220" y2="40" stroke="rgba(0,181,173,0.35)" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <!-- Flash overlay for transitions -->
+    <div id="flash-overlay"></div>
+
+    <!-- Scanlines (subtle CRT texture) -->
+    <div id="scanlines"></div>
+
+  </div><!-- /scene -->
+
+  <script src="animation.js?v=n8r4q2"></script>
+</body>
+</html>

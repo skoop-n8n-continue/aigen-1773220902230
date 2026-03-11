@@ -1,0 +1,736 @@
+/* ================================================================
+   NEA Flash Deal Template — style.css
+   Northeast Alternatives | New Bedford, MA
+   Canvas: 1920 × 1080
+   ================================================================ */
+
+:root {
+  --dark:         #091C22;
+  --darker:       #050F14;
+  --teal:         #00B5AD;
+  --teal-bright:  #00E5D9;
+  --teal-mid:     #007A76;
+  --teal-glow:    rgba(0, 181, 173, 0.45);
+  --yellow:       #FFD700;
+  --gold:         #F4A020;
+  --pink:         #FF4785;
+  --white:        #FFFFFF;
+  --dim:          rgba(255,255,255,0.65);
+  --very-dim:     rgba(255,255,255,0.35);
+
+  --font-hero:    'Bebas Neue', 'Arial Black', sans-serif;
+  --font-body:    'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-detail:  'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--darker);
+  overflow: hidden;
+  width: 1920px;
+  height: 1080px;
+}
+
+/* ================================================================
+   SCENE
+   ================================================================ */
+#scene {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ================================================================
+   BACKGROUND
+   ================================================================ */
+#bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://skoop-dev-code-agent.s3.us-east-1.amazonaws.com/n8n-continue%2Faigen-1773220902230%2Fassets%2Fnea_background-1773221346449.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+#bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 80% at 30% 50%, rgba(0,181,173,0.04) 0%, transparent 70%),
+    linear-gradient(160deg, rgba(5,15,20,0.65) 0%, rgba(9,28,34,0.35) 45%, rgba(5,15,20,0.75) 100%);
+}
+
+/* ================================================================
+   DIAMOND PATTERN OVERLAY
+   ================================================================ */
+#diamond-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* ================================================================
+   BACKGROUND WATERMARK "DEALS"
+   ================================================================ */
+#bg-watermark {
+  position: absolute;
+  z-index: 2;
+  font-family: var(--font-hero);
+  font-size: 500px;
+  color: rgba(0, 181, 173, 0.035);
+  letter-spacing: -8px;
+  white-space: nowrap;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-7deg);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ================================================================
+   BG STAR WATERMARK
+   ================================================================ */
+#bg-star-wrap {
+  position: absolute;
+  right: -120px;
+  top: -80px;
+  width: 860px;
+  height: 860px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#bg-star {
+  width: 100%;
+  height: 100%;
+}
+
+/* ================================================================
+   PARTICLES CANVAS
+   ================================================================ */
+#particles {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ================================================================
+   ACCENT LINES
+   ================================================================ */
+#accent-line-top {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,181,173,0.3) 15%,
+    rgba(0,181,173,0.9) 40%,
+    rgba(0,181,173,1.0) 50%,
+    rgba(0,181,173,0.9) 60%,
+    rgba(0,181,173,0.3) 85%,
+    transparent 100%
+  );
+  z-index: 6;
+  transform-origin: center;
+  box-shadow: 0 0 12px rgba(0,181,173,0.4);
+}
+
+#accent-line-bottom {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,181,173,0.3) 15%,
+    rgba(0,181,173,0.9) 40%,
+    rgba(0,181,173,1.0) 50%,
+    rgba(0,181,173,0.9) 60%,
+    rgba(0,181,173,0.3) 85%,
+    transparent 100%
+  );
+  z-index: 6;
+  transform-origin: center;
+  box-shadow: 0 0 12px rgba(0,181,173,0.4);
+}
+
+/* ================================================================
+   TOP BAR
+   ================================================================ */
+#top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  padding: 0 64px;
+  gap: 0;
+  background: linear-gradient(180deg,
+    rgba(5,10,14,0.97) 0%,
+    rgba(9,28,34,0.90) 100%
+  );
+}
+
+/* NEA Logo group */
+#nea-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+#nea-logo-star {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 12px rgba(0,181,173,0.6));
+}
+
+#nea-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 2px;
+}
+
+#nea-northeast {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: lowercase;
+}
+
+#nea-alternatives {
+  font-family: var(--font-hero);
+  font-size: 31px;
+  color: var(--teal);
+  letter-spacing: 5px;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(0,181,173,0.4));
+}
+
+.top-divider {
+  width: 1.5px;
+  height: 52px;
+  background: linear-gradient(180deg, transparent, rgba(0,181,173,0.5), transparent);
+  margin: 0 52px;
+  flex-shrink: 0;
+}
+
+#top-center-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#top-label {
+  font-family: var(--font-hero);
+  font-size: 46px;
+  color: var(--yellow);
+  letter-spacing: 10px;
+  text-shadow:
+    0 0 20px rgba(255,215,0,0.6),
+    0 0 40px rgba(255,215,0,0.3);
+  line-height: 1;
+}
+
+#top-location {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+#top-loc-name {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dim);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   MAIN AREA
+   ================================================================ */
+#main-area {
+  position: absolute;
+  top: 102px;
+  bottom: 102px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 820px 1fr;
+}
+
+/* ================================================================
+   PRODUCT IMAGE PANEL (LEFT)
+   ================================================================ */
+#product-image-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* Layered glow rings */
+#glow-ring-outer {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,181,173,0.10) 0%, rgba(0,181,173,0.04) 40%, transparent 70%);
+  border: 1px solid rgba(0,181,173,0.12);
+  box-shadow: 0 0 60px rgba(0,181,173,0.08) inset;
+}
+
+#glow-ring-inner {
+  position: absolute;
+  width: 530px;
+  height: 530px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,181,173,0.16) 0%, transparent 70%);
+  border: 1.5px solid rgba(0,181,173,0.22);
+}
+
+#glow-ring-core {
+  position: absolute;
+  width: 370px;
+  height: 370px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,181,173,0.22) 0%, transparent 70%);
+}
+
+/* Product image wrapper */
+#product-image-wrap {
+  position: relative;
+  z-index: 5;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#product-img {
+  max-width: 470px;
+  max-height: 470px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 30px 70px rgba(0,0,0,0.9))
+    drop-shadow(0 0 50px rgba(0,181,173,0.25));
+}
+
+/* Badges under image */
+#image-badges {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+#category-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 24px;
+  border-radius: 40px;
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: rgba(0,181,173,0.18);
+  border: 1.5px solid rgba(0,181,173,0.7);
+  color: var(--teal-bright);
+  backdrop-filter: blur(4px);
+}
+
+#strain-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 24px;
+  border-radius: 40px;
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  /* Colors set dynamically via JS */
+  backdrop-filter: blur(4px);
+}
+
+/* ================================================================
+   PRODUCT INFO PANEL (RIGHT)
+   ================================================================ */
+#product-info-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 80px 24px 56px;
+  gap: 0;
+}
+
+/* Deal header */
+#deal-header {
+  margin-bottom: 20px;
+}
+
+#deal-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+#deal-eyebrow-line-left {
+  width: 70px;
+  height: 2px;
+  background: var(--teal);
+  transform-origin: left center;
+  box-shadow: 0 0 8px rgba(0,181,173,0.5);
+}
+
+#deal-eyebrow-line-right {
+  width: 40px;
+  height: 2px;
+  background: rgba(0,181,173,0.4);
+  transform-origin: right center;
+}
+
+#deal-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  color: var(--teal);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#deal-title {
+  font-family: var(--font-hero);
+  font-size: 108px;
+  line-height: 0.86;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-shadow:
+    0 0 40px rgba(0,181,173,0.2),
+    0 4px 30px rgba(0,0,0,0.6);
+}
+
+/* Product details */
+#product-details-wrap {
+  margin-bottom: 18px;
+}
+
+#product-brand {
+  font-family: var(--font-body);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 6px;
+  text-shadow: 0 0 20px rgba(0,181,173,0.4);
+}
+
+#product-full-name {
+  font-family: var(--font-body);
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--white);
+  text-transform: uppercase;
+  max-width: 950px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+/* ── PRICE SECTION ── */
+#price-section {
+  margin-top: 4px;
+}
+
+/* Original price */
+#original-price-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 2px;
+}
+
+#was-label {
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+#original-price-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+#original-price-text {
+  font-family: var(--font-hero);
+  font-size: 96px;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+#strikethrough-line {
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  right: -8px;
+  height: 8px;
+  background: var(--pink);
+  border-radius: 4px;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  box-shadow:
+    0 0 20px rgba(255,71,133,0.8),
+    0 0 40px rgba(255,71,133,0.4);
+}
+
+/* New price */
+#new-price-row {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-bottom: 14px;
+}
+
+#now-label-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+#now-label {
+  font-family: var(--font-body);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: var(--yellow);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+#only-label {
+  font-family: var(--font-body);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: var(--dim);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+#new-price-big {
+  font-family: var(--font-hero);
+  font-size: 230px;
+  line-height: 0.82;
+  color: var(--yellow);
+  letter-spacing: -3px;
+  text-shadow:
+    0 0 30px rgba(255,215,0,0.8),
+    0 0 70px rgba(255,215,0,0.5),
+    0 0 130px rgba(255,215,0,0.25);
+}
+
+/* Savings row */
+#savings-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+#savings-badge {
+  flex-shrink: 0;
+  position: relative;
+}
+
+#savings-badge-inner {
+  background: var(--yellow);
+  color: var(--darker);
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow:
+    0 0 30px rgba(255,215,0,0.6),
+    0 0 70px rgba(255,215,0,0.3),
+    0 4px 20px rgba(0,0,0,0.5);
+  /* Rotation handled by GSAP */
+}
+
+#savings-pct {
+  font-family: var(--font-hero);
+  font-size: 58px;
+  line-height: 1;
+  color: var(--darker);
+}
+
+#savings-off-text {
+  font-family: var(--font-hero);
+  font-size: 32px;
+  line-height: 1;
+  color: var(--darker);
+}
+
+#savings-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#savings-amount-text {
+  font-family: var(--font-hero);
+  font-size: 58px;
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+#savings-sublabel {
+  font-family: var(--font-body);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--very-dim);
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   BOTTOM BAR
+   ================================================================ */
+#bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 0 64px;
+  background: linear-gradient(0deg,
+    rgba(5,10,14,0.97) 0%,
+    rgba(9,28,34,0.90) 100%
+  );
+}
+
+.bot-item {
+  font-family: var(--font-body);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+}
+
+.bot-item.bot-legal {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: var(--very-dim);
+  text-transform: uppercase;
+}
+
+.dot {
+  color: var(--teal);
+  font-size: 13px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ================================================================
+   CORNER DECORATIONS (FOREGROUND)
+   ================================================================ */
+.corner-deco {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  z-index: 18;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+#corner-tl {
+  top: 0;
+  left: 0;
+}
+
+#corner-br {
+  bottom: 0;
+  right: 0;
+}
+
+/* ================================================================
+   FLASH OVERLAY (transitions)
+   ================================================================ */
+#flash-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 95;
+  background: #00E5D9;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ================================================================
+   SCANLINES (subtle CRT texture)
+   ================================================================ */
+#scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.05) 3px,
+    rgba(0,0,0,0.05) 6px
+  );
+}
